@@ -10,7 +10,6 @@
 //  }
 import mongoose from "mongoose";
 
-// Provide a default value for MONGODB_URL if it's not defined
 const MONGODB_URL = process.env.MONGODB_URL || "default_mongodb_url";
 
 export const connectMongoDB = async () => {

@@ -81,12 +81,15 @@
 "use client";
 import Link from "next/link";
 import React, { useState, FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
+
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -111,6 +114,7 @@ export default function RegisterForm() {
       if (res.ok) {
         const form = e.currentTarget;
         form.reset();
+        router.push("/");
       } else {
         console.log("User registration failed");
       }
